@@ -1,4 +1,4 @@
-# [Django Tree Structure Example](https://pure-waters-13994.herokuapp.com/)
+# [Django Tree Structure Example](https://treecompany.herokuapp.com/)
 
 ## Running Locally
 
