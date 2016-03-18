@@ -1,8 +1,8 @@
-# Django Tree Structure Example
+# [Django Tree Structure Example](https://pure-waters-13994.herokuapp.com/)
 
 ## Running Locally
 
-Make sure you have Python [installed properly](http://install.python-guide.org).
+Make sure you have Python [installed properly](http://install.python-guide.org)
 Install Django (`$ pip install django`)
 
 ```sh
@@ -19,6 +19,9 @@ $ python manage.py runserver
 
 Your app should now be running on [127.0.0.1:8000/](http://127.0.0.1:8000/).
 
+## Heroku Django Starter Template
+
+An utterly fantastic project starter template for Django 1.9.
 
 ## Features
 
