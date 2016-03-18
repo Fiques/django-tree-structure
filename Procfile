@@ -1,0 +1,1 @@
+web: gunicorn treeStructure.wsgi --log-file -
