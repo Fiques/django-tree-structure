@@ -6,6 +6,7 @@ from dbarray import IntegerArrayField
 
 class Company(models.Model):
 	name = models.CharField(max_length=50)
+	earnings = models.IntegerField(blank=True, null=True)
 	path = IntegerArrayField(blank=True, editable=False)
 	depth = models.PositiveSmallIntegerField(default=0)
 
