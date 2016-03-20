@@ -44,7 +44,7 @@
    
     <div class="container">
       <div class="row">
-        <h1 class="text-center">TreeCompany</h1>
+        <h1 class="text-center text-muted">TreeCompany</h1>
         <hr>
         <h3>Add Your Company</h3>
         <form id="postcompany" method="post" action="">
@@ -58,9 +58,8 @@
         <ul id="companies">
         {% for company in company_tree %}     
             <li id="{{ company.id }}" class="company" style="margin-left:{{ company.depth|add:company.depth }}em;">
-                <strong><p>{{company.name}}</p></strong>
+                <strong><p>{{ company.name }}</p></strong>
                 <p>Estimated Earnings: {{ company.earnings }}K$</p>
-             
                 <p><a href="" class="subcompany">Add <i class="fa fa-plus"></i></a></p>
             </li>
         {% empty %}
