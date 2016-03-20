@@ -3,5 +3,48 @@ body {
 }
 
 .row {
-	padding: 40px 15px;
+	padding: 5px 15px;
+}
+
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#companies {
+    padding-left: 0px;
+}
+
+    #companies li {
+        list-style-type: none;
+    }
+
+
+#postcompany ul {
+    padding-left: 0px;
+}
+
+    #postcompany ul li {
+        list-style-type:  none;
+        padding-bottom: 5px;
+    }
+        
+#postcompany label {
+    width: 50px;
+    display: inline-block;
+}
+
+.company {
+    background: #A1C275;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color: #003236;
+    padding: 10px;
+    margin-bottom: 10px;
 }

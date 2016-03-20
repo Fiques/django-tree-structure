@@ -1,10 +1,88 @@
-{% extends 'tree/base.html' %}
+{% load humanize %}
 {% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Roman Dmytriv">
+    <meta name="description" content="Company tree structure app">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Home - TreeCompany</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.6-dist/css/bootstrap.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/tree.png' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/"><img width="25" height="25" src="{% static 'img/tree.png' %}"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'home' %}">Home</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://github.com/Fiques/django-tree-structure" target="_blank">Contribute on GitHub</a></li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+   
+    <div class="container">
+      <div class="row">
+        <h1 class="text-center">TreeCompany.herokuapp.com</h1>
+        <hr>
+        <h3>Add Your Company</h3>
+        <form id="postcompany" method="post" action="">
+        <ul class="list-inline">
+          <li>{{ form.as_p }}</li>
+          <li><p><input type="submit" class="btn btn-default" value="Submit" /></p></li>
+        </ul>
+            {% csrf_token %}
+        </form>
 
-{% block title %}
-  Home - Tree
-{% endblock %}
+        <ul id="companies">
+        {% for company in company_tree %}     
+            <li id="{{ company.id }}" class="company" style="margin-left:{{ company.depth|add:company.depth }}em;">
+                <strong><p>{{company.name}}</p></strong>
+             
+                <p><a href="" class="subcompany">Add <i class="fa fa-plus"></i></a></p>
+            </li>
+        {% empty %}
+            <li>There are currently no companies. You can be first!</li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+      <br><br><br>
+    <footer class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'home' %}">&copy; Tree Structure Example</a></li>
+          <li><a href="http://www.eliftech.com/" target="_blank">ElifTech, Inc.</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://github.com/Fiques" target="_blank">Roman Dmytriv</a></li>
+        </ul>
+      </div>
+    </footer>
 
-{% block content %}
-	<h1>Home template</h1>
-{% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'bootstrap-3.3.6-dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+	</body>
+</html>
