@@ -3,6 +3,8 @@ from itertools import ifilter
 from .models import Company
 from .forms import CompanyForm
 
+from django.db.models import Sum
+
 
 def home(request):
 	form = CompanyForm(request.POST or None)
@@ -27,6 +29,7 @@ def home(request):
 			return redirect('tree.views.home')
 
 	company_tree = Company.objects.all().order_by('path')
+	total_earnings = Company.objects.all().aggregate(Sum('earnings'))
 
 	return render(request, 'tree/index.html', locals(),)
 

@@ -55,17 +55,15 @@
             {% csrf_token %}
         </form>
         <ul id="companies">
-        {% for company in company_tree %}     
+        {% for company in company_tree %}  
             <li id="{{ company.id }}" class="company" style="margin-left:{{ company.depth|add:company.depth }}em;">
-                <strong><p>{{ company.name }} | {{ company.earnings }}K$</p></strong>
+                <strong><p>{{ company.name }} | {{ company.earnings }}K$ | {{ total_earnings.earnings__sum }}K$</p></strong>
                 <p class="btn-group">
                   <a href="" class="subcompany btn btn-default btn-sm">Add <i class="fa fa-plus"></i></a>
                   <a class="btn btn-default btn-sm" href="{% url "company_edit" pk=company.pk %}"><i class="fa fa-edit"> Edit</i></a>
                   <a class="btn btn-default btn-sm" href="{% url "company_remove" pk=company.pk %}"><i class="fa fa-remove"> Delete</i></a>
                 </p>
             </li>
-        {% empty %}
-            <li>There are currently no companies. You can be first!</li>
         {% endfor %}
         </ul>
       </div>
