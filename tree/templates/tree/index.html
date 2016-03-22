@@ -54,8 +54,8 @@
         </ul>
             {% csrf_token %}
         </form>
-        <p class="company"><strong>Total Estimated Earnings: {{ total_earnings.earnings__sum }}K$</strong></p>
         <ul id="companies">
+        <p class="company"><strong>Total Estimated Earnings: {{ total_earnings.earnings__sum }}K$</strong></p>
         {% for company in company_tree %}
             <li id="{{ company.id }}" class="company" style="margin-left:{{ company.depth|add:company.depth }}em;">
                 <strong><p>{{ company.name }} | {{ company.earnings }}K$</p></strong>
